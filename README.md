@@ -12,9 +12,10 @@ I install the following tools and dependencies, in many cases I only use the too
 | Build Tools | C/C++ x86 native compiler and tools |
 | Gowin EDA | FPGA development |
 | OpenFPGALoader | Flashing / Programming devices |
-| slang | LSP (language support) and linting |
-| verilator | SystemVerilog code formatting (not LSP) |
-| GNU RISC-V | Cross compiler for pivorv32 soft-core|
+| verible | SystemVerilog code formatting (not LSP) |
+| GNU RISC-V compiler | Cross compiler for pivorv32 soft-core|
+
+I have a commented out block to download and install ```slang``` for SystemVerilog language support and linting, however it is better installed by the VS code extension which ensures that the extension and svlang server versions are aligned.
 
 run  ```./build.sh``` to build the container.  
 
