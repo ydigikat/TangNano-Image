@@ -2,7 +2,7 @@
 
 This project builds a docker container that can be used for development of my Gowin FPGA based projects.
 
-> IMPORTANT:  You must download the Gowin EDA tar and save it in the same folder as the build.sh script before building the container. While it is free to use, it is behind a registration process.  The build expects this to be named ```Gowin.tar.gz```
+> IMPORTANT:  You must download the Gowin EDA tar file (https://www.gowinsemi.com/en/support/home/) and save it in the same folder as the build.sh script before building the container. While it is free to use, it is behind a registration process.  The build expects this to be renamed ```Gowin.tar.gz```
 
 I install the following tools and dependencies, in many cases I only use the tool for part of its full capabilities.
 
