@@ -94,7 +94,7 @@ RUN rm openFPGALoader.tgz
 RUN wget https://github.com/chipsalliance/verible/releases/download/v0.0-4128-gce6d8b4b/verible-v0.0-4128-gce6d8b4b-linux-static-x86_64.tar.gz -O verible.tar.gz
 RUN tar -xvzf verible.tar.gz && \
     chmod +x  verible*/* && \
-    mv verible*/* /usr/local/bin
+    cp verible*/bin/* /usr/local/bin
 RUN rm verible.tar.gz
 
 # -------------------------------------------------------------------
