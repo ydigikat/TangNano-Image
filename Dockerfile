@@ -21,12 +21,28 @@ ARG RISCV_PKG=https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releas
 # -------------------------------------------------------------------
 # Install software dependencies
 # -------------------------------------------------------------------
-RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates \
-    sudo build-essential git zip wget ninja-build \
-    qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools \
-    libqt5widgets5 libqt5gui5 libqt5core5a libqt5x11extras5 && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update
 
+# These are needed for the Gowin tooling, best to let them install
+# the full packages to avoid dependency issues so not using
+# --no-install-recommends flag.  Annoyingly even if we're not using the
+# Gowin IDE, QT is still needed for the CLI tools.  A benefit of installing
+# QT is that you can run the IDE from the container if so desired.
+RUN apt-get install -y \
+    qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools \
+    libqt5widgets5 libqt5gui5 libqt5core5a libqt5x11extras5
+    
+# Other tools and library dependencies.  These are needed at
+# runtime by tooling that doesn't include them in its own package.    
+RUN apt-get install -y --no-install-recommends ca-certificates \
+    build-essential git zip wget ninja-build \
+    libxcb-xinerama0 libxcb-cursor0 libxcb-icccm4 libxcb-image0 \
+    libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-shape0 \
+    libnss3 libasound2 pkg-config libftdi1-2 libftdi1-dev libhidapi-hidraw0 \
+    libhidapi-dev libudev-dev zlib1g-dev libmpc-dev libmpfr-dev libgmp-dev \
+    libexpat1-dev
+
+    
 # -------------------------------------------------------------------    
 # Install Gowin EDA from local copy
 # -------------------------------------------------------------------
@@ -71,3 +87,5 @@ RUN wget -q  ${RISCV_PKG} -nv -O riscv.tar.gz && \
 RUN find /opt/gowin -type d -exec chmod a+rx {} \; && \
     find /opt/gowin -type f -exec chmod a+r {} \; && \
     find /opt/gowin/IDE/bin -type f -exec chmod a+rx {} \; || true
+
+RUN rm -rf /var/lib/apt/lists/*
