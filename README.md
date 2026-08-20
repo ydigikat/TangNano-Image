@@ -14,6 +14,7 @@ I install the following tools and dependencies, in many cases I only use the too
 | OpenFPGALoader | Flashing / Programming devices |
 | slang | LSP (language support) and linting |
 | verilator | SystemVerilog code formatting (not LSP) |
+| iverilog | Simulation / testbenches |
 | GNU riscv64 | GCC cross compiler for pivorv32 soft-core|
 
 run  ```./build.sh``` to build the container.  
