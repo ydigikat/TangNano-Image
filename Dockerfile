@@ -81,6 +81,12 @@ RUN wget ${VERIBLE_PKG} -nv -O verible.tar.gz && \
 RUN wget -q  ${RISCV_PKG} -nv -O riscv.tar.gz && \
     tar -xzf riscv.tar.gz -C /opt && mv /opt/xpack-riscv* /opt/riscv-none-elf && rm riscv.tar.gz
 
+# -------------------------------------------------------------------
+# iVerilog
+# -------------------------------------------------------------------
+RUN apt-get install iverilog
+    
+
 # -------------------------------------------------------------------    
 # Set permissions on gowin EDA
 # -------------------------------------------------------------------
