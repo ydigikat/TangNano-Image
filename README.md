@@ -6,7 +6,7 @@ It includes the following tools:
 
 | Tool | Purpose |
 | ---- | ------- |
-| Ubuntu 22.04 LTS core | The Linux operating system |
+| Ubuntu 22.04 LTS core | OS Version specified by Gowin |
 | Build Tools | C/C++ x86 native compiler and tools |
 | Gowin EDA | FPGA development |
 | OpenFPGALoader | Flashing / Programming devices |
