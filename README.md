@@ -2,8 +2,6 @@
 
 This project builds a docker image for development Gowin FPGA based projects.
 
-> IMPORTANT:  You must download the Gowin EDA tar file (https://www.gowinsemi.com/en/support/download_eda/) and save it in the same folder as the build.sh script before building the container. While it is free to use, it is behind a registration process.  The build expects this to be renamed ```Gowin.tar.gz```
-
 It includes the following tools:
 
 | Tool | Purpose |
@@ -17,29 +15,16 @@ It includes the following tools:
 | iverilog | Simulation / testbenches |
 | GNU riscv64 | GCC cross compiler for pivorv32 soft-core|
 
-run  ```./build.sh``` to build the container.  
-
 ### Notes
 
-> Don't forget to download the Gowin package first.
-
-The container can be used stand-alone in docker, however it is intended for use as a devcontainer in Microsoft VS Code.  Most of my projects include a ```.devcontainer``` configuration.   You can download and build one of these using VS Code to check that the container is working once built.  
-
-The devcontainer will add VS code specific support to the docker image when the project is first opened (zsh etc).
+The image can be used stand-alone in docker by starting an interactive shell, however it is intended to be used as a ```devcontainer``` within Microsoft VS Code.  
 
 #### Building The Container
 
-This container does not take too long to build as it mostly uses release packages.  These are fetched usign ```wget```, unpacked and copied to the correct locations.
+>**IMPORTANT**:  You must download the Gowin EDA release package from (https://www.gowinsemi.com/en/support/download_eda/). 
 
-In broad terms the build goes through the following steps:
+The Gowin EDA tools are freely usable for non-commercial purposes but behind a registration/login screen.
 
-1. Install Ubuntu 22.04 LTS (core)
-2. Install x86 compiler tools, utilities and libraries needed for the subsequent steps.
-2. Install Gowin EDA (from your local download) add install QT support.
-4. Install cmake.
-5. Install openFPGALoader.
-6. Install verible 
-8. Install riscv64 compiler tools.
+Rename the download to ```Gowin.tar.gz``` and place it in the same folder as the ```build.sh``` script.
 
-#### Windows Support
-The container can be used on MS Windows if you have desktop container support, Docker Desktop or Rancher for example.  
+Run ```./build.sh``` to build the image.  
