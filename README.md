@@ -19,7 +19,7 @@ It includes the following tools:
 
 The image can be used stand-alone in docker by starting an interactive shell, however it is intended to be used as a ```devcontainer``` within Microsoft VS Code.  
 
-#### Building The Container
+#### Building The Image
 
 >**IMPORTANT**:  You must download the Gowin EDA release package from (https://www.gowinsemi.com/en/support/download_eda/). 
 
