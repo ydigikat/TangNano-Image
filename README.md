@@ -1,12 +1,12 @@
 # Gowin EDA toolchain
 
-This project builds a docker container that can be used for development of my Gowin FPGA based projects.
+This project builds a docker image for development Gowin FPGA based projects.
 
 > IMPORTANT:  You must download the Gowin EDA tar file (https://www.gowinsemi.com/en/support/download_eda/) and save it in the same folder as the build.sh script before building the container. While it is free to use, it is behind a registration process.  The build expects this to be renamed ```Gowin.tar.gz```
 
-I install the following tools and dependencies, in many cases I only use the tool for part of its full capabilities.
+It includes the following tools:
 
-| Tool | What I use it for |
+| Tool | Purpose |
 | ---- | ------- |
 | Ubuntu 22.04 LTS core | The Linux operating system |
 | Build Tools | C/C++ x86 native compiler and tools |
