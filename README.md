@@ -15,10 +15,6 @@ It includes the following tools:
 | iverilog | Simulation / testbenches |
 | GNU riscv64 | GCC cross compiler for pivorv32 soft-core|
 
-### Notes
-
-The image can be used stand-alone in docker by starting an interactive shell, however it is intended to be used as a ```devcontainer``` within Microsoft VS Code.  
-
 #### Building The Image
 
 >**IMPORTANT**:  You must download the Gowin EDA release package from (https://www.gowinsemi.com/en/support/download_eda/). 
