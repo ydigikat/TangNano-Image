@@ -17,10 +17,6 @@ It includes the following tools:
 
 #### Building The Image
 
->**IMPORTANT**:  You must download the Gowin EDA release package from (https://www.gowinsemi.com/en/support/download_eda/). 
-
-The Gowin EDA tools are freely usable for non-commercial purposes but behind a registration/login screen.
-
-Rename the download to ```Gowin.tar.gz``` and place it in the same folder as the ```build.sh``` script.
-
 Run ```./build.sh``` to build the image.  
+
+If you get a 404 error from any downloads then likely the target filename (usually release version number) has changed.  Check for an updated release.

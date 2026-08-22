@@ -16,6 +16,7 @@ ARG CMAKE_PKG=https://github.com/Kitware/CMake/releases/download/v4.4.2/cmake-4.
 ARG LOADER_PKG=https://github.com/trabucayre/openFPGALoader/releases/download/v1.1.1/ubtuntu22.04-openFPGALoader.tgz
 ARG VERIBLE_PKG=https://github.com/chipsalliance/verible/releases/download/v0.0-4128-gce6d8b4b/verible-v0.0-4128-gce6d8b4b-linux-static-x86_64.tar.gz
 ARG RISCV_PKG=https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v14.2.0-3/xpack-riscv-none-elf-gcc-14.2.0-3-linux-x64.tar.gz
+ARG GOWIN_EDA=http://cdn.gowinsemi.com.cn/Gowin_V1.9.11.03_Education_Linux.tar.gz
 
 
 # -------------------------------------------------------------------
@@ -39,12 +40,10 @@ RUN apt-get install -y --no-install-recommends ca-certificates \
     libexpat1-dev
 
     
-# -------------------------------------------------------------------    
-# Install Gowin EDA (from local copy)
-# -------------------------------------------------------------------
-COPY Gowin.tar.gz .
 
-RUN mkdir /opt/gowin/ && tar xvf Gowin.tar.gz -C /opt/gowin && rm Gowin.tar.gz && \
+
+RUN mkdir /opt/gowin/ && wget ${GOWIN_EDA}  -O Gowin.tar.gz
+RUN tar xvf Gowin.tar.gz -C /opt/gowin && rm Gowin.tar.gz && \
     mv /opt/gowin/IDE/bin/qt.conf /opt/gowin/IDE/bin/qt.orig && \
     echo "[Paths]\n\rPlugins=/usr/lib/x86_64-linux-gnu/qt5/plugins/" > /opt/gowin/IDE/bin/qt.conf 
 
